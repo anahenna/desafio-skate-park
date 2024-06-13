@@ -167,7 +167,19 @@ const deleteAccount = async (req, res) => {
     }
 };
 
+const changeEstado = async(req, res) => {
+    try {
+        
+        const { email, state} = req.body;
 
+        const user = await UserModel.updateEstado(email, state);
+
+        return res.json({ok: true, user});
+    } catch (error) {
+        console.error(error);
+        return res.status(error.code.json({ok: false, msg: error.msg}));
+    }
+}
 
 
 export const UserController ={
@@ -176,6 +188,7 @@ export const UserController ={
     register,
     login,
     updateDatos,
-    deleteAccount
+    deleteAccount,
+    changeEstado
 
 }

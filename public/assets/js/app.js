@@ -14,17 +14,22 @@ document.addEventListener("DOMContentLoaded", () => {
             skaters.forEach(skater => {
                 const tr = document.createElement('tr');
 
+                // Determine la clase CSS y el texto basado en el estado booleano
+                const estadoClass = skater.estado ? 'text-success font-weight-bold' : 'text-warning font-weight-bold';
+                const estadoText = skater.estado ? 'Aprobado' : 'En revisión';
+                                
+
                 tr.innerHTML = `
                     <th scope="row">${skater.id}</th>
                     <td><div><img src="${skater.foto}" style="width: 50px; height: 60px;"</td>
                     <td>${skater.nombre}</td>
                     <td>${skater.anos_experiencia}</td>
                     <td>${skater.especialidad}</td>
-                    <td class="${skater.estado === 'true' ? 'text-success font-weight-bold' : 'text-warning font-weight-bold'}">${skater.estado === 'true' ? 'Aprobado' : 'En revisión'}</td>
-
+                    <td class="${estadoClass}">${estadoText}</td>
+                
                 `;
                 
-                
+                console.log(skater.estado)
                 listaSkaters.appendChild(tr);
                 
             });
