@@ -1,20 +1,23 @@
-# Ejemplo g67 app de libros
+# Proyecto - Skate Park
+La Municipalidad de Santiago, ha organizado una competencia de Skate para impulsar el nivel
+deportivo de los jóvenes que desean representar a Chile en los X Games del próximo año, y
+han iniciado con la gestión para desarrollar la plataforma web en la que los participantes se
+podrán registrar y revisar el estado de su solicitud
 
-## Primeros pasos
+## Pasos para ejecutar
 
 ```sh
-# Tener mínimo la version 20.12.2
+Realizar la creación de la base de datoS, tablas y usuarios usando el archivo:
+    - querys.sql
+
 npm install
 npm run start
-# Realizar previamente el seed  de la base de datos
-Visite: http://localhost:3000
+
+Visita la ruta raíz: http://localhost:3000/
+Inicia sesión con las credenciales indicadas y podras acceder a las rutas restringidas tanto de skater como de administrador.
+
 ```
 
-## Advertencias
--Tener mínimo la version 20.12.2
+## Advertencias y recomendaciones
+- Versión mínima Node.js: v20.11.2
 
-## Frotnend
-Para visualizar el sitio web visite: `http://localhost:3000` 
-
-## Seeders
-El archivo para inicializar la base de datos está en: `database/queries.sql`
