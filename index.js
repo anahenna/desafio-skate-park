@@ -6,6 +6,7 @@ import adminRoutes from './routes/admin.route.js'
 import fileUpload from 'express-fileupload'
 import path from 'path';
 import {verifyTokenJWT} from './middlewares/jwt.middleware.js'
+import { verifyTokenJWTadmin } from './middlewares/jwt.middleware.admin.js'
 
 const app = express()
 const __dirname = import.meta.dirname
@@ -35,7 +36,7 @@ app.get('/admin/register', (req, res) => {
     res.sendFile(__dirname + '/public/register_admin.html')
 })
 
-app.get('/admin/dashboard', (req, res) => {
+app.get('/admin/dashboard', verifyTokenJWTadmin, (req, res) => {
     res.sendFile(__dirname + '/public/admin.html')
 })
 

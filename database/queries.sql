@@ -1,4 +1,7 @@
+CREATE DATABASE SKATEPARK;
+
 DROP TABLE IF EXISTS SKATERS;
+DROP TABLE IF EXISTS ADMINS;
 
 CREATE TABLE SKATERS(
 	id SERIAL PRIMARY KEY,
@@ -10,8 +13,6 @@ CREATE TABLE SKATERS(
 	foto VARCHAR(255) ,
 	estado BOOLEAN NOT NULL DEFAULT FALSE
 );
-
-DROP TABLE IF EXISTS ADMINS;
 
 CREATE TABLE ADMINS(
 	id SERIAL PRIMARY KEY,
@@ -26,8 +27,8 @@ SELECT * FROM SKATERS;
 
 INSERT INTO SKATERS (nombre, password, email, anos_experiencia, especialidad, foto)
 VALUES
-('Nombre1', '123', 'test1@test.com', 11, 'flip1', 'fotoejemplo1.jpg'),
-('Nombre2', '123', 'test2@test.com', 12, 'flip2', 'fotoejemplo2.jpg'),
-('Nombre3', '123', 'test3@test.com', 13, 'flip3', 'fotoejemplo3.jpg');
+    ('Tomas Hawk', '$2a$10$9XiJSMjTQUbmZ8WkZFrHU.0OTW4z6ShxQHl053dAfvh.WfwU0fUki', 'email1@email.com', 15, 'Kickflip', '/public/images/tony.jpg'),
+    ('Eve Gonzalez', '$2a$10$9XiJSMjTQUbmZ8WkZFrHU.0OTW4z6ShxQHl053dAfvh.WfwU0fUki', 'email2@email.com', 12, 'Heelflip', '/public/images/Evelien.jpg'),
+    ('Daniel Perez', '$2a$10$U/96kyPPFmGAwd88FIfD6uY7t.M3Y9vk/MELgNHpkqzfa69Kx2YGa', 'email3@email.com', 9, 'Ollie', '/public/images/Danny.jpg');
 
 SELECT * FROM SKATERS;
