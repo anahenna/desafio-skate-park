@@ -2,6 +2,7 @@ import express from 'express'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import userRoutes from './routes/user.route.js'
+import adminRoutes from './routes/admin.route.js'
 import fileUpload from 'express-fileupload'
 import path from 'path';
 import {verifyTokenJWT} from './middlewares/jwt.middleware.js'
@@ -26,12 +27,27 @@ app.get('/register', (req, res) => {
     res.sendFile(__dirname + '/public/register.html')
 })
 
+app.get('/admin/login', (req, res) => {
+    res.sendFile(__dirname + '/public/login_admin.html')
+})
+
+app.get('/admin/register', (req, res) => {
+    res.sendFile(__dirname + '/public/register_admin.html')
+})
+
+app.get('/admin/dashboard', (req, res) => {
+    res.sendFile(__dirname + '/public/admin.html')
+})
+
+
 app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/admins', adminRoutes);
 
 app.get('/datos', verifyTokenJWT, (req, res) => {
     // res.json({ validToken: true, email: req.email});
     res.sendFile(path.join(__dirname, 'public', 'datos.html'));
 });
+
 
 app.get('/protected', verifyTokenJWT, (req, res)=>{
     res.json({ validToken: true, email: req.email});
