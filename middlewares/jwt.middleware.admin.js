@@ -16,7 +16,6 @@ export const verifyTokenJWTadmin = (req, res, next) => {
             throw { ok: false, msg: "Acceso no autorizado para administradores!" };
         }
 
-        // Puedes almacenar el email o el rol en req.user para usarlo en controladores
         req.user = { email, isAdmin };
 
         next();

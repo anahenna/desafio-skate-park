@@ -20,7 +20,7 @@ const login = async(req, res) => {
         });
 
         const token = jwt.sign(
-            { email: user.email, isAdmin: true }, // Agregar isAdmin: true para administradores
+            { email: user.email, isAdmin: true }, 
             process.env.SECRET_JWT,
             { expiresIn: '2m' }
         );

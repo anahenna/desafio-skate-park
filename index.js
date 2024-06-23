@@ -45,7 +45,6 @@ app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/admins', adminRoutes);
 
 app.get('/datos', verifyTokenJWT, (req, res) => {
-    // res.json({ validToken: true, email: req.email});
     res.sendFile(path.join(__dirname, 'public', 'datos.html'));
 });
 
